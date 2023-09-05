@@ -58,3 +58,25 @@ header.append(message);
 document.querySelector('.btn--close-cookie').addEventListener('click',function(){
   message.remove();
 })
+
+//styles
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+
+console.log(message.style.height);
+
+console.log(getComputedStyle(message).color);
+
+message.style.height = Number.parseFloat(getComputedStyle(message).height,10) + 30 + 'px';
+
+document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+//attributes
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.className);
+
+//non standard
+console.log(logo.designer);
+console.log(logo.getAttribute('designer'));
