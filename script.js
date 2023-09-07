@@ -67,16 +67,6 @@ document.querySelector('.nav__links').addEventListener('click',function (e) {
   }
 })
 
-
-
-
-
-
-
-
-
-
-
 //
 // console.log(document.documentElement);
 // console.log(document.head);
@@ -197,3 +187,22 @@ document.querySelector('.nav__links').addEventListener('click',function (e) {
 //   this.style.backgroundColor = randomColor();
 //   console.log('nav', e.target);
 // }, true);
+
+const h1 = document.querySelector('h1');
+
+// going downwards: child
+console.log(h1.querySelectorAll('.highlight'));
+console.log(h1.childNodes);
+console.log(h1.children);
+h1.firstElementChild.style.color = 'white';
+h1.lastElementChild.style.color = 'orangered';
+
+//going upwards: parents
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+
+h1.closest('.header').style.background = 'var(--color-primary)';
+
+//going sideways : siblings
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
