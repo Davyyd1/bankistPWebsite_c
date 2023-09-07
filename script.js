@@ -30,6 +30,53 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+
+//button scrolling
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function(e){
+  const s1coords = section1.getBoundingClientRect();
+  
+  section1.scrollIntoView({behavior: 'smooth'})
+});
+
+//
+//page navigation
+
+// document.querySelectorAll('.nav__link').forEach(function(el){
+//   el.addEventListener('click',function(e){
+//     e.preventDefault();
+//     const id = this.getAttribute('href');
+//     console.log(id);
+//     document.querySelector(id).scrollIntoView({behavior: 'smooth'});
+//   })
+// })
+
+// 1. add event listener to common parent element
+// 2. determine what element originated the event
+
+document.querySelector('.nav__links').addEventListener('click',function (e) {
+  e.preventDefault();
+
+  //matching strategy
+  if(e.target.classList.contains('nav__link')){
+    const id = e.target.getAttribute('href');
+    console.log(id);
+    document.querySelector(id).scrollIntoView({behavior:'smooth'});
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
 //
 // console.log(document.documentElement);
 // console.log(document.head);
@@ -81,32 +128,32 @@ document.addEventListener('keydown', function (e) {
 // console.log(logo.designer);
 // console.log(logo.getAttribute('designer'));
 
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
+// const btnScrollTo = document.querySelector('.btn--scroll-to');
+// const section1 = document.querySelector('#section--1');
 
-btnScrollTo.addEventListener('click', function(e){
-  const s1coords = section1.getBoundingClientRect();
-  console.log(s1coords);
-  console.log(e.target.getBoundingClientRect());
-  // console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+// btnScrollTo.addEventListener('click', function(e){
+//   const s1coords = section1.getBoundingClientRect();
+//   console.log(s1coords);
+//   console.log(e.target.getBoundingClientRect());
+//   // console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
 
 
-  //  console.log('height/width viewport', document.documentElement.clientHeight, document.documentElement.clientWidth);
+//   //  console.log('height/width viewport', document.documentElement.clientHeight, document.documentElement.clientWidth);
   
-  // //scrolling 1.
-  // window.scrollTo(s1coords.left + window.pageXOffset, s1coords.top + window.pageYOffset);
+//   // //scrolling 1.
+//   // window.scrollTo(s1coords.left + window.pageXOffset, s1coords.top + window.pageYOffset);
 
-  //2.
-  // window.scrollTo({
-  //   left: s1coords.left + window.pageXOffset, 
-  //   top: s1coords.top + window.pageYOffset,
-  //   behavior: 'smooth',
-  // });
+//   //2.
+//   // window.scrollTo({
+//   //   left: s1coords.left + window.pageXOffset, 
+//   //   top: s1coords.top + window.pageYOffset,
+//   //   behavior: 'smooth',
+//   // });
 
-  //3.
-  section1.scrollIntoView({behavior: 'smooth'})
-  // window.scrollTo(s1coords.left, s1coords.top);
-});
+//   //3.
+//   section1.scrollIntoView({behavior: 'smooth'})
+//   // window.scrollTo(s1coords.left, s1coords.top);
+// });
 
 // const alertH1 = function(e){
 //   alert('addeventlistener: great! you are reading the heading :D');
@@ -124,29 +171,29 @@ btnScrollTo.addEventListener('click', function(e){
 // }
 
 // rgb(255,255,255)
-const randomInt = (min,max) => Math.floor(Math.random() * (max-min+1) + min);
-const randomColor = () => `rgb(${randomInt(0,255)},${randomInt(0,255)},${randomInt(0,255)})`;
-console.log(randomColor(0,255));
+// const randomInt = (min,max) => Math.floor(Math.random() * (max-min+1) + min);
+// const randomColor = () => `rgb(${randomInt(0,255)},${randomInt(0,255)},${randomInt(0,255)})`;
+// console.log(randomColor(0,255));
 
-document.querySelector('.nav__link').addEventListener('click', function (e) {
-  e.preventDefault();
-  this.style.backgroundColor = randomColor();
-  console.log('LINK', e.target, e.currentTarget);
+// document.querySelector('.nav__link').addEventListener('click', function (e) {
+//   e.preventDefault();
+//   this.style.backgroundColor = randomColor();
+//   console.log('LINK', e.target, e.currentTarget);
   
-  //stop propagation
-  // e.stopPropagation();
-});
+//   //stop propagation
+//   // e.stopPropagation();
+// });
 
 
-document.querySelector('.nav__links').addEventListener('click', function (e) {
-  e.preventDefault();
-  this.style.backgroundColor = randomColor();
-  console.log('container', e.target);
-});
+// document.querySelector('.nav__links').addEventListener('click', function (e) {
+//   e.preventDefault();
+//   this.style.backgroundColor = randomColor();
+//   console.log('container', e.target);
+// });
 
 
-document.querySelector('.nav').addEventListener('click', function (e) {
-  e.preventDefault();
-  this.style.backgroundColor = randomColor();
-  console.log('nav', e.target);
-}, true);
+// document.querySelector('.nav').addEventListener('click', function (e) {
+//   e.preventDefault();
+//   this.style.backgroundColor = randomColor();
+//   console.log('nav', e.target);
+// }, true);
