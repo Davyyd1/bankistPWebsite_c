@@ -35,48 +35,75 @@ document.addEventListener('keydown', function (e) {
 // console.log(document.head);
 // console.log(document.body);
 
-document.querySelector('.header');
-const allSections = document.querySelectorAll('.section');
-console.log(allSections);
+// document.querySelector('.header');
+// const allSections = document.querySelectorAll('.section');
+// console.log(allSections);
 
-document.getElementById('section--1');
-const allButtons = document.getElementsByTagName('button');
-console.log(allButtons);
+// document.getElementById('section--1');
+// const allButtons = document.getElementsByTagName('button');
+// console.log(allButtons);
 
-console.log(document.getElementsByClassName('btn'));
-const header = document.querySelector('.header');
-//creating and inserting elements
-// .insertAdjacentHTML
-// const header = document.head;
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-message.textContent = 'we use cookies for improved functionality and analitics.';
-message.innerHTML = 'we use cookies for improved functionality and analitics. <button class="btn btn--close-cookie">Got it!</button>"';
+// console.log(document.getElementsByClassName('btn'));
+// const header = document.querySelector('.header');
+// //creating and inserting elements
+// // .insertAdjacentHTML
+// // const header = document.head;
+// const message = document.createElement('div');
+// message.classList.add('cookie-message');
+// message.textContent = 'we use cookies for improved functionality and analitics.';
+// message.innerHTML = 'we use cookies for improved functionality and analitics. <button class="btn btn--close-cookie">Got it!</button>"';
 
-header.append(message);
+// header.append(message);
 
-document.querySelector('.btn--close-cookie').addEventListener('click',function(){
-  message.remove();
-})
+// document.querySelector('.btn--close-cookie').addEventListener('click',function(){
+//   message.remove();
+// })
 
 //styles
-message.style.backgroundColor = '#37383d';
-message.style.width = '120%';
+// message.style.backgroundColor = '#37383d';
+// message.style.width = '120%';
 
-console.log(message.style.height);
+// console.log(message.style.height);
 
-console.log(getComputedStyle(message).color);
+// console.log(getComputedStyle(message).color);
 
-message.style.height = Number.parseFloat(getComputedStyle(message).height,10) + 30 + 'px';
+// message.style.height = Number.parseFloat(getComputedStyle(message).height,10) + 30 + 'px';
 
-document.documentElement.style.setProperty('--color-primary', 'orangered');
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
 
-//attributes
-const logo = document.querySelector('.nav__logo');
-console.log(logo.alt);
-console.log(logo.src);
-console.log(logo.className);
+// //attributes
+// const logo = document.querySelector('.nav__logo');
+// console.log(logo.alt);
+// console.log(logo.src);
+// console.log(logo.className);
 
-//non standard
-console.log(logo.designer);
-console.log(logo.getAttribute('designer'));
+// //non standard
+// console.log(logo.designer);
+// console.log(logo.getAttribute('designer'));
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function(e){
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+  console.log(e.target.getBoundingClientRect());
+  // console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+
+
+  //  console.log('height/width viewport', document.documentElement.clientHeight, document.documentElement.clientWidth);
+  
+  // //scrolling 1.
+  // window.scrollTo(s1coords.left + window.pageXOffset, s1coords.top + window.pageYOffset);
+
+  //2.
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset, 
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+
+  //3.
+  section1.scrollIntoView({behavior: 'smooth'})
+  // window.scrollTo(s1coords.left, s1coords.top);
+})
