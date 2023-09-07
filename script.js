@@ -106,4 +106,19 @@ btnScrollTo.addEventListener('click', function(e){
   //3.
   section1.scrollIntoView({behavior: 'smooth'})
   // window.scrollTo(s1coords.left, s1coords.top);
-})
+});
+
+const alertH1 = function(e){
+  alert('addeventlistener: great! you are reading the heading :D');
+
+  h1.removeEventListener('mouseenter', alertH1);
+}
+const h1 = document.querySelector('h1');
+h1.addEventListener('mouseenter', alertH1);
+
+setTimeout(() => { h1.removeEventListener('mouseenter', alertH1)
+  
+}, 3000);
+// h1.onmouseenter =  function(e){
+//   alert('onmouseenter: great! you are reading the heading :D');
+// }
