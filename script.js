@@ -67,6 +67,30 @@ document.querySelector('.nav__links').addEventListener('click',function (e) {
   }
 })
 
+//tabbed component
+const tabs = document.querySelectorAll('.operations__tab');
+console.log(tabs);
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click', function(e) {
+  const clicked = e.target.closest('.operations__tab');
+  console.log(clicked);
+
+  //guard clause
+  if(!clicked) return;
+
+  //active tab
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  clicked.classList.add('operations__tab--active');
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'))
+
+  //actiivate content area
+  document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active');
+})
+
+
+
 //
 // console.log(document.documentElement);
 // console.log(document.head);
@@ -188,21 +212,21 @@ document.querySelector('.nav__links').addEventListener('click',function (e) {
 //   console.log('nav', e.target);
 // }, true);
 
-const h1 = document.querySelector('h1');
+// const h1 = document.querySelector('h1');
 
-// going downwards: child
-console.log(h1.querySelectorAll('.highlight'));
-console.log(h1.childNodes);
-console.log(h1.children);
-h1.firstElementChild.style.color = 'white';
-h1.lastElementChild.style.color = 'orangered';
+// // going downwards: child
+// console.log(h1.querySelectorAll('.highlight'));
+// console.log(h1.childNodes);
+// console.log(h1.children);
+// h1.firstElementChild.style.color = 'white';
+// h1.lastElementChild.style.color = 'orangered';
 
-//going upwards: parents
-console.log(h1.parentNode);
-console.log(h1.parentElement);
+// //going upwards: parents
+// console.log(h1.parentNode);
+// console.log(h1.parentElement);
 
-h1.closest('.header').style.background = 'var(--color-primary)';
+// h1.closest('.header').style.background = 'var(--color-primary)';
 
-//going sideways : siblings
-console.log(h1.previousElementSibling);
-console.log(h1.nextElementSibling);
+// //going sideways : siblings
+// console.log(h1.previousElementSibling);
+// console.log(h1.nextElementSibling);
